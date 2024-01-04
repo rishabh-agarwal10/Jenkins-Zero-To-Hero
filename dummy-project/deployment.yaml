@@ -1,1 +1,21 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rish-boot-app
+  labels:
+    app: rish-boot-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rish-boot-app
+  template:
+    metadata:
+      labels:
+        app: rish-boot-app
+    spec:
+      containers:
+      - name: rish-boot-app
+        image: node:21-alpine
+        ports:
+        - containerPort: 8080
